@@ -1,16 +1,12 @@
 from fastapi import FastAPI
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.config import get_settings
+from app.database import engine, initialize_database
 
 settings = get_settings()
-app = FastAPI(title=settings.app_name, version="0.1.0")
-engine_options = {"pool_pre_ping": True}
-if settings.database_url.startswith("sqlite"):
-    # SQLite connections are used across FastAPI's sync worker threads locally.
-    engine_options["connect_args"] = {"check_same_thread": False}
-engine = create_engine(settings.database_url, **engine_options)
+app = FastAPI(title=settings.app_name, version="0.1.0", on_startup=[initialize_database])
 
 
 @app.get("/health", tags=["system"])

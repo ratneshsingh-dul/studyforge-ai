@@ -4,7 +4,7 @@ A learning-focused project for building a document-grounded study assistant in s
 
 ## Current milestone
 
-The backend foundation includes FastAPI, environment-based settings, and separate liveness (`/health`) and database readiness (`/ready`) endpoints. Authentication, document processing, RAG, and frontend features are not implemented yet.
+The backend foundation includes FastAPI, environment-based settings, SQLAlchemy models for students, documents, page-aware chunks, conversations, and messages, plus separate liveness (`/health`) and database readiness (`/ready`) endpoints. Authentication, document processing, RAG, and frontend features are the next milestones.
 
 ## Local setup with Python
 
