@@ -4,7 +4,7 @@ A learning-focused project for building a document-grounded study assistant in s
 
 ## Current milestone
 
-The backend currently includes secure account routes, SQLAlchemy records for students, documents, page-aware chunks, conversations, and messages, plus PDF upload, extraction, and owner-scoped library endpoints. RAG chat and the browser interface are next.
+The backend currently includes secure account routes, SQLAlchemy records for students, documents, page-aware chunks, conversations, and messages, plus PDF upload, extraction, owner-scoped library endpoints, and a BM25-style retrieval baseline that returns source pages. Gemini answer generation and the browser interface are next.
 
 ## Local setup with Python
 
