@@ -4,7 +4,7 @@ A learning-focused project for building a document-grounded study assistant in s
 
 ## Current milestone
 
-The backend foundation includes FastAPI, environment-based settings, SQLAlchemy models for students, documents, page-aware chunks, conversations, and messages, secure password hashing, expiring HttpOnly session cookies, plus separate liveness (`/health`) and database readiness (`/ready`) endpoints. Document processing, RAG, and frontend features are the next milestones.
+The backend currently includes secure account routes, SQLAlchemy records for students, documents, page-aware chunks, conversations, and messages, plus PDF upload, extraction, and owner-scoped library endpoints. RAG chat and the browser interface are next.
 
 ## Local setup with Python
 
@@ -27,6 +27,8 @@ The backend foundation includes FastAPI, environment-based settings, SQLAlchemy 
 5. Open `http://127.0.0.1:8000/docs`. `/health` checks the API process; `/ready` checks the configured database.
 
 Local development defaults to SQLite, so no database server is required. Set `DATABASE_URL` to a PostgreSQL URL when a PostgreSQL server is available. PostgreSQL remains the planned database for multi-user deployment. `GEMINI_API_KEY` is not used by this milestone; add a newly generated key to your ignored `.env` only when Gemini integration is implemented. Set a unique `JWT_SECRET` before deployment and enable secure cookies behind HTTPS. Never put secrets in source code, `.env.example`, Git history, or a packaged executable.
+
+PDF uploads are limited to 15 MB by default. Text is extracted page by page; scanned PDFs without an OCR text layer are rejected with a clear message. Original files and page-aware chunks are stored per user, and uploaded PDFs are excluded from Git.
 
 ## Design notes
 

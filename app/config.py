@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     jwt_secret: str = "dev-only-change-this-secret-before-deployment"
     access_token_minutes: int = 60
     secure_cookies: bool = False
+    upload_dir: str = "data/uploads"
+    max_upload_mb: int = 15
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
