@@ -4,9 +4,11 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from app.config import get_settings
 from app.database import engine, initialize_database
+from app.auth import router as auth_router
 
 settings = get_settings()
 app = FastAPI(title=settings.app_name, version="0.1.0", on_startup=[initialize_database])
+app.include_router(auth_router)
 
 
 @app.get("/health", tags=["system"])

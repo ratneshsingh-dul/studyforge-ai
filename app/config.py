@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     environment: str = "development"
     database_url: str = "sqlite:///./study_assistant.db"
     gemini_api_key: str = ""
+    jwt_secret: str = "dev-only-change-this-secret-before-deployment"
+    access_token_minutes: int = 60
+    secure_cookies: bool = False
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
